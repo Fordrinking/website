@@ -1,0 +1,15 @@
+.sc-v-c {
+    margin: 15px;
+}
+
+.sc-v-url {
+    border: none;
+    resize: none;
+    width: 480px;
+    height: 120px;
+    margin: 0;
+    padding: 15px;
+    outline: none;
+    background-color: #006A79;
+    color: #D8E0E4;
+}

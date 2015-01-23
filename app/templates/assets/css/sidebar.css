@@ -1,0 +1,65 @@
+.sidebar-c {
+    display: none;
+
+}
+
+@media (min-width: 768px) {
+    .sidebar-c {
+        width: 230px;
+        height: 400px;
+        float: left;
+        margin-left: 30px;
+    }
+}
+
+@media (min-width: 992px) {
+    .sidebar-c {
+        display: block;
+    }
+}
+
+.sidebar {
+}
+
+.side-title {
+    margin: 15px 0;
+    padding: 0 15px 5px 15px;
+    border-bottom: 1px solid #80CBC4;
+    color: #B5B5B5;
+}
+
+.side-item {
+    margin: 25px 0;
+}
+
+.side-item ul {
+    list-style: none;
+    color: #B5B5B5;
+    padding: 0;
+    margin: 0;
+}
+
+.side-item li {
+    cursor: pointer;
+    padding: 6px 15px;
+}
+
+.side-item li:hover {
+    background-color: #405661;
+}
+
+.side-item li > .span-t {
+    margin: 0 10px 3px 10px;
+    font-size: 15px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.side-me-status {
+
+}
+
+.side-me-action {
+
+}
+

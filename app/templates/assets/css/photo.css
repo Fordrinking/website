@@ -1,0 +1,130 @@
+.sc-p-c {
+    position: relative;
+}
+
+.sc-p-insert {
+    width: 100%;
+    background-color: #006A79;
+    padding: 148px 0;
+}
+
+.sc-p-f-hide {
+    display: none;
+}
+
+.sc-p-i-btn {
+    font-size: 64px;
+    color: #D8E0E4;
+    align-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 64px;
+    cursor: pointer;
+}
+
+.sc-p-url-c {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+}
+
+.sc-p-url {
+    position: relative;
+}
+
+.sc-p-url-btn {
+    color: #D8E0E4;
+    cursor: pointer;
+}
+
+.sc-p-url-i {
+    display: none;
+    position: absolute;
+    top: -48px;
+    box-shadow: 1px 2px 3px #37474F;
+}
+
+.sc-url-confirm {
+    position: absolute;
+    right: 0;
+    color: #828789;
+    top: 8px;
+    font-size: 12px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.sc-angle-lt {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #D8E0E4;
+    bottom: -10px;
+}
+
+#scPhotoURL{
+    border: none;
+    outline: none;
+    height: 20px;
+    width: 300px;
+    padding: 8px 20px 8px 8px;
+    font-size: 16px;
+    background-color: #D8E0E4;
+    color: #52515F;
+}
+
+.sc-p-load-imgs {
+
+}
+
+.sc-p-new-load-item {
+    position: relative;
+}
+
+.sc-p-load-item-img {
+    width: 540px;
+}
+
+.sc-p-img-action {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    display: none;
+}
+
+.sc-p-action-i {
+    float: left;
+    width: 15px;
+    height: 15px;
+    padding: 5px;
+    margin: 0;
+    background-color: rgba(55, 71, 79, 0.26);
+    color: #D8E0E4;
+    border: 1px solid rgba(55, 71, 79, 0.27);
+    cursor: pointer;
+}
+
+.sc-p-action-i:hover {
+    background-color: rgba(55, 71, 79, 0.40);
+}
+
+.sc-p-del-img {
+    border-left: none;
+}
+
+.sc-p-link-img {
+
+}
+
+
+
+
+
+
+
+
+
+

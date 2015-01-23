@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    padding: 0;
+
+}
+
+.sc-editor {
+    border: none;
+    outline: none;
+    color: #D8E0E4;;
+    background-color: #006A79;
+    padding: 15px;
+    min-height: 135px;
+}

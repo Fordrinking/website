@@ -1,0 +1,83 @@
+.sc-e-title {
+    padding: 10px 12px;
+    height: 20px;
+    background-color: #006A79;
+}
+
+.sc-e-title input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    color: #b5b5b5;
+    width: 100%;
+}
+
+.sc-e-bar {
+    background-color: #D8E0E4;;
+    height: 30px;
+    padding: 0 10px;
+}
+
+.sc-e-bar-i {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+
+.sc-e-bar-bold {
+    background: url("../img/tiny_mce_sprite.png") 0 0 no-repeat;
+}
+
+.sc-e-bar-italic {
+    background: url("../img/tiny_mce_sprite.png") -30px 0 no-repeat;
+}
+
+.sc-e-bar-strike {
+    background: url("../img/tiny_mce_sprite.png") -60px 0 no-repeat;
+}
+
+.sc-e-bar-link {
+    background: url("../img/tiny_mce_sprite.png") -90px 0 no-repeat;
+}
+
+.sc-e-bar-unlink {
+    background: url("../img/tiny_mce_sprite.png") -120px 0 no-repeat;
+}
+
+.sc-e-bar-number-list {
+    background: url("../img/tiny_mce_sprite.png") -150px 0 no-repeat;
+}
+
+.sc-e-bar-dot-list {
+    background: url("../img/tiny_mce_sprite.png") -180px 0 no-repeat;
+}
+
+.sc-e-bar-image {
+    background: url("../img/tiny_mce_sprite.png") -270px 0 no-repeat;
+}
+
+.sc-e-bar-html {
+    width: 60px;
+    background: url("../img/tiny_mce_sprite.png") -300px 0 no-repeat;
+}
+
+.sc-e-bar-i-bg {
+    background-position-y: -30px;
+}
+
+.sc-editor-iframe {
+    border: none;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
