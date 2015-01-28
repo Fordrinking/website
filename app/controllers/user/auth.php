@@ -53,6 +53,29 @@ class Auth extends Controller {
         View::rendertemplate('footer' ,$data);
     }
 
+    public function clientLogin() {
+        $email    = $_POST['loginMail'];
+        $password = $_POST['loginPass'];
+
+        $userModel = new UserModel();
+
+        if (!$userModel->isMailExist($email)) {
+            echo "no-email";
+            return ;
+        }
+        $uid = $userModel->getUID($email);
+
+        if($password == $userModel->getPassword($uid)) {
+            Session::set('loggedin',    true);
+            Session::set('currentUser', $uid);
+        } else {
+            echo "wrong-password";
+            return;
+        }
+
+        echo "user-auth";
+    }
+
     public function logout() {
         Session::destroy();
         Url::redirect('login');
