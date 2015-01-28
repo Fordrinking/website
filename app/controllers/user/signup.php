@@ -74,6 +74,10 @@ class Signup extends Controller {
         }
     }
 
+    public function testFun() {
+        echo "<script>alert('hello'); </script>";
+    }
+
 }
 
 

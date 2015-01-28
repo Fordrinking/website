@@ -1,3 +1,3 @@
 .idea/
 upload/
-app/core/config.php
+app/core/Config.php

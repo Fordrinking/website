@@ -71,6 +71,8 @@ Router::any('signup-check', '\controllers\user\signup@check');
 Router::any('signup-check-email', '\controllers\user\signup@checkEmail');
 Router::any('signup-check-name', '\controllers\user\signup@checkUsername');
 
+Router::any('test', '\controllers\user\signup@testFun');
+
 Router::any('login', '\controllers\user\auth@login');
 Router::any('logout', '\controllers\user\auth@logout');
 

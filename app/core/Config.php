@@ -19,7 +19,7 @@ class Config {
 		ob_start();
 
 		//site address
-		define('DIR', 'http://fordrinking.com:8888/');
+		define('DIR', 'http://fordrinking.com/');
 
 		//set default controller and method for legacy calls
 		define('DEFAULT_CONTROLLER', 'home');
