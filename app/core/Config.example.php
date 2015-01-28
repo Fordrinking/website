@@ -19,7 +19,7 @@ class Config {
 		ob_start();
 
 		//site address
-		define('DIR', 'http://fordrinking.com/');
+		define('DIR', 'http://example.com/');
 
 		//set default controller and method for legacy calls
 		define('DEFAULT_CONTROLLER', 'home');
@@ -31,16 +31,16 @@ class Config {
 		//database details ONLY NEEDED IF USING A DATABASE
 		define('DB_TYPE', 'mysql');
 		define('DB_HOST', 'localhost');
-		define('DB_NAME', 'db_fordrinking');
-		define('DB_USER', 'root');
-		define('DB_PASS', 'yang123456');
-		define('PREFIX', 'fd_');
+		define('DB_NAME', 'db_name');
+		define('DB_USER', 'user');
+		define('DB_PASS', 'password');
+		define('PREFIX', 'prefix_');
 
 		//set prefix for sessions
-		define('SESSION_PREFIX', 'fd_');
+		define('SESSION_PREFIX', 'prefix_');
 
 		//optionall create a constant for the name of the site
-		define('SITETITLE', 'V2.1');
+		define('SITETITLE', 'XXX');
 
 		//turn on custom error handling
 		set_exception_handler('core\logger::exception_handler');
