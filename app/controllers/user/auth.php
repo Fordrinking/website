@@ -73,7 +73,17 @@ class Auth extends Controller {
             return;
         }
 
-        echo "user-auth";
+        $name = $userModel->getUsername($uid);
+        $avatar = $userModel->getAvatar($uid);
+
+        $userInfo = array(
+            'uid'      => $uid, 
+            'email'    => $email,
+            'password' => $password, 
+            'username'     => $name, 
+            'avatar'   => $avatar);
+
+         echo json_encode($userInfo);
     }
 
     public function logout() {

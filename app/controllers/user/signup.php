@@ -27,7 +27,7 @@ class Signup extends Controller {
         View::rendertemplate('footer');
     }
 
-    public function check() {
+    public function signup() {
         $email    = $_POST['email'];
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -52,6 +52,39 @@ class Signup extends Controller {
         Session::set('currentUser', $uid);
 
         echo "user-added";
+    }
+
+    public function signupClient() {
+        $email    = $_POST['email'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        $userModel = new UserModel();
+
+        if ($userModel->isMailExist($email)) {
+            echo "email-exist";
+            return ;
+        }
+
+        if ($userModel->isNameExist($username)) {
+            echo "user-exist";
+            return;
+        }
+
+        $userModel->addUser($username, $password, $email);
+
+        $uid    = $userModel->getUID($email);
+        $name   = $userModel->getUsername($uid);
+        $avatar = $userModel->getAvatar($uid);
+
+        $userInfo = array(
+            'uid'      => $uid, 
+            'email'    => $email,
+            'password' => $password, 
+            'username' => $username, 
+            'avatar'   => $avatar);
+
+         echo json_encode($userInfo);
     }
 
     public function checkEmail() {

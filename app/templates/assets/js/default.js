@@ -77,7 +77,7 @@
         }
 
         $.ajax({
-            url:  "signup-check",
+            url:  "signup",
             type: "post",
             data: {
                 email:    email,

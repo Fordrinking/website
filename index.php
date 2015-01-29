@@ -67,7 +67,8 @@ use \core\Router,
 Router::any('home', '\controllers\home@index');
 
 Router::any('', '\controllers\user\signup@index');
-Router::any('signup-check', '\controllers\user\signup@check');
+Router::any('signup', '\controllers\user\signup@signup');
+Router::any('signup-client', '\controllers\user\signup@signupClient');
 Router::any('signup-check-email', '\controllers\user\signup@checkEmail');
 Router::any('signup-check-name', '\controllers\user\signup@checkUsername');
 
