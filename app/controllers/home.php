@@ -70,6 +70,26 @@ class Home extends Controller {
 		}
 	}
 
+	public function clientGetBlogs() {
+		$blogs = array();
+
+		$blogModel = new BlogModel();
+
+		$data = $blogModel->getNewestBlog(5);
+		if ($data) {
+			foreach($data as $row) {
+				$newblog = array(
+					'avatar'   => $row->avatar,
+					'username' => $row->username,
+					'postdate' => $row->postDate,
+					'content'  => $row->content);
+				array_push($blogs, $newblog);
+			}
+		}
+
+		echo json_encode($blogs);
+	}
+
 }
 
 

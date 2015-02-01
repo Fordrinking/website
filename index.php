@@ -83,6 +83,7 @@ Router::any('post-photos', '\controllers\user\user@postPhotos');
 Router::any('post-sound', '\controllers\user\user@postSound');
 Router::any('post-video', '\controllers\user\user@postVideo');
 
+Router::any('get-blog-client', '\controllers\home@clientGetBlogs');
 Router::any('more-blog', '\controllers\home@moreBlogs');
 //if no route found
 Router::error('\core\error@index');
