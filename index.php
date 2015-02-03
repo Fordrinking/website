@@ -82,6 +82,15 @@ Router::any('post-blog', '\controllers\user\user@postBlog');
 Router::any('post-photos', '\controllers\user\user@postPhotos');
 Router::any('post-sound', '\controllers\user\user@postSound');
 Router::any('post-video', '\controllers\user\user@postVideo');
+Router::any('post-message', '\controllers\user\user@postMessage');
+Router::any('post-poll', '\controllers\user\user@postPoll');
+
+Router::any('post-blog-client', '\controllers\user\user@postBlogClient');
+Router::any('post-photos-client', '\controllers\user\user@postPhotosClient');
+Router::any('post-sound-client', '\controllers\user\user@postSoundClient');
+Router::any('post-video-client', '\controllers\user\user@postVideoClient');
+Router::any('post-message-client', '\controllers\user\user@postMessageClient');
+Router::any('post-poll-client', '\controllers\user\user@postPollClient');
 
 Router::any('get-blog-client', '\controllers\home@clientGetBlogs');
 Router::any('more-blog', '\controllers\home@moreBlogs');

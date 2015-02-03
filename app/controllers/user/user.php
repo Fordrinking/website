@@ -50,6 +50,41 @@ class User extends Controller {
         echo "</div>\n";
     }
 
+    public function postBlogClient() {
+        $blogModel = new BlogModel();
+        $userModel = new UserModel();
+
+        $uid       = intval($_POST['uid']);
+        $username  = $userModel->getUsername($uid);
+        $content   = $_POST['content'];
+        $avatar    = $userModel->getAvatar($uid);
+        $postdate  = date('y-m-d H:i:s', time());
+        $content   = "<div class='blog-body-t'>" . $content . "</div>";
+
+        $blogModel->postBlog($content, $username);
+
+        echo "<div class='blog-item'>\n";
+        echo     "<div class='blog-title'>\n";
+        echo         "<div class='blog-user'>\n";
+        echo             "<img class='user-img left' src='$avatar'/>\n";
+        echo         "</div>\n";
+        echo         "<div class='blog-info'>\n";
+        echo             "<div class='blog-username'>$username</div>\n";
+        echo             "<div class='blog-date'>$postdate</div>\n";
+        echo         "</div>\n";
+        echo         "<div class='blog-action'><i class='fa  fa-angle-down fa-lg'></i></div>\n";
+        echo     "</div>\n";
+        echo     "<div class='blog-body'>\n";
+        echo         $content;
+        echo     "</div>\n";
+        echo     "<div class='blog-footer'>\n";
+        echo         "<div class='blog-f-btn blog-repost-btn'><i class='fa fa-share-square-o fa-lg'></i></div>\n";
+        echo         "<div class='blog-f-btn blog-comment-btn'><i class='fa fa-comment-o fa-lg'></i></div>\n";
+        echo         "<div class='blog-f-btn blog-like-btn'><i class='fa fa-thumbs-o-up fa-lg'></i></div>\n";
+        echo     "</div>\n";
+        echo "</div>\n";
+    }
+
     public function postPhotos()
     {
         $contents  = array();
