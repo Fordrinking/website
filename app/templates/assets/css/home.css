@@ -194,6 +194,7 @@
 
 .blog-c {
     background-color: #80CBC4;
+    color: #515151;
 }
 
 @media (min-width: 768px) {
@@ -228,8 +229,7 @@
 .blog-info {
     float: left;
     margin: 6px 0;
-
-
+    height: 36px;
 }
 
 .blog-action {
