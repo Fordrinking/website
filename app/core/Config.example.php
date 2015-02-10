@@ -42,6 +42,8 @@ class Config {
 		//optionall create a constant for the name of the site
 		define('SITETITLE', 'XXX');
 
+		define('LOCAL_DIR', 'your local path');
+
 		//turn on custom error handling
 		set_exception_handler('core\logger::exception_handler');
 		set_error_handler('core\logger::error_handler');
