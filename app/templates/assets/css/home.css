@@ -176,21 +176,24 @@
     }
 }
 
-.blog-user {
+.blog-avatar-item {
     display: none;
+    float: left;
 }
 
 @media (min-width: 768px) {
-    .blog-user {
-        float: left;
+    .blog-avatar-item {
         display: block;
     }
 }
 
+.blog-a-img {
+    width: 64px;
+    height: 64px;
+}
+
 .blog-c {
     background-color: #80CBC4;
-    color: #515151;
-    word-spacing: 1px;
 }
 
 @media (min-width: 768px) {
@@ -200,16 +203,49 @@
 }
 
 .blog-title {
-    height: 20px;
-    padding: 15px;
+    height: 48px;
+    padding: 0 15px;
+    position: relative;
+    color: #515151;
+}
+
+.blog-user {
+    float: left;
+    margin: 6px 18px 6px 3px;
+}
+
+@media (min-width: 768px) {
+    .blog-user {
+        display: none;
+    }
+}
+
+.user-img {
+    width: 36px;
+    height: 36px;
+}
+
+.blog-info {
+    float: left;
+    margin: 6px 0;
+
+
+}
+
+.blog-action {
+    position: absolute;
+    right: 12px;
+    top: 12px;
 }
 
 .blog-username {
-    float: left;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .blog-date {
-    float: right;
+    margin-top:2px;
+    font-size: 14px;
 }
 
 .blog-body {
@@ -244,7 +280,36 @@
 }
 
 .blog-footer {
-    padding: 15px;
+    margin-top: 15px;
+    background-color: #006A79;
+    height: 40px;
+}
+
+.blog-f-btn {
+    width: 33%;
+    text-align: center;
+    margin: 12px 0;
+    color: #D8E0E4;
+    font-size: 14px;
+}
+
+.blog-f-btn .fa {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.blog-repost-btn {
+    float: left;
+    border-right: 1px solid #969696;
+}
+
+.blog-comment-btn {
+    float: left;
+    border-right: 1px solid #969696;
+}
+
+.blog-like-btn {
+    float: right;
 }
 
 
