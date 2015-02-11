@@ -55,6 +55,10 @@
     display: inline-block;
 }
 
+.side-item li > i {
+    width: 16px;
+}
+
 .side-me-status {
 
 }

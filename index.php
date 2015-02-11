@@ -94,6 +94,11 @@ Router::any('post-poll-client', '\controllers\user\user@postPollClient');
 
 Router::any('get-blog-client', '\controllers\home@clientGetBlogs');
 Router::any('more-blog', '\controllers\home@moreBlogs');
+
+Router::any('account/info', '\controllers\user\account@info');
+Router::any('account/security', '\controllers\user\account@security');
+Router::any('account/privacy', '\controllers\user\account@privacy');
+Router::any('account/dashboard', '\controllers\user\account@dashboard');
 //if no route found
 Router::error('\core\error@index');
 
