@@ -11,6 +11,7 @@ namespace controllers\user;
 
 
 use core\Controller;
+use helpers\graphics\ImageUtil;
 use helpers\Url;
 use helpers\Session;
 use models\BlogModel;
@@ -101,16 +102,58 @@ class User extends Controller {
 
         $file_ary = $this->reArrayFiles($_FILES['imgFiles']);
 
-        foreach ($file_ary as $file) {
-            $temp       = explode('/', $file['type']);
-            $type       = $temp[1];
-            $name       = basename($file['name']) . time();
-            $newName    = md5($name) . "." . $type;
+        foreach ($file_ary as $imageItem) {
+            $size = $imageItem ["size"];
+            if ($size > 3 * 1024 * 1204 || $size == 0) {
+                echo "Warning! Image should no more than 3M";
+                exit();
+            }
+
+            $type = $imageItem ["type"];
+            switch ($type) {
+                case 'image/pjpeg' :
+                case 'image/jpeg' :
+                    $extend = ".jpg";
+                    break;
+                case 'image/gif' :
+                    $extend = ".gif";
+                    break;
+                case 'image/png' :
+                    $extend = ".png";
+                    break;
+            }
+            if (empty($extend)) {
+                echo "Warning! Only JPG, PNG and GIF allowed";
+                exit();
+            }
+
+            $name       = basename($imageItem['name']) . time();
+            $newName    = md5($name) . "." . $extend;
             $uploadFile = $uploadDir . $newName;
 
-            if (!move_uploaded_file($file['tmp_name'], $uploadFile)) {
-                return;
+            $image = ImageUtil::isometricScale($imageItem['tmp_name'], 0, 540, 0);
+
+            switch ($type) {
+                case 'image/pjpeg' :
+                case 'image/jpeg' :
+                    if (!imagejpeg($image, $uploadFile, 80)) {
+                        return;
+                    }
+                    break;
+                case 'image/gif' :
+                    $extend = ".gif";
+                    if (!imagegif($image, $uploadFile, 80)) {
+                        return;
+                    }
+                    break;
+                case 'image/png' :
+                    $extend = ".png";
+                    if (!imagepng($image, $uploadFile, 80)) {
+                        return;
+                    }
+                    break;
             }
+
             $imgURL = DIR . "upload/" . $newName;
 
             array_push($contents, "<img class='blog-img' src='$imgURL'>");
