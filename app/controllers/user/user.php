@@ -128,10 +128,10 @@ class User extends Controller {
             }
 
             $name       = basename($imageItem['name']) . time();
-            $newName    = md5($name) . "." . $extend;
+            $newName    = md5($name) . $extend;
             $uploadFile = $uploadDir . $newName;
 
-            $image = ImageUtil::isometricScale($imageItem['tmp_name'], 0, 540, 0);
+            $image = ImageUtil::isometricScale($imageItem['tmp_name'], 0, 720, 0);
 
             switch ($type) {
                 case 'image/pjpeg' :

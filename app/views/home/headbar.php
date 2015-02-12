@@ -15,38 +15,60 @@
         </div>
         <div class="h-user right">
             <div class="h-tab-row collapse" id="userNavRow">
-                <a class="tab left">
-                    <em class="h-icon glyphicon glyphicon-home"></em>
-                    <em class="h-tab-s">Home</em>
-                </a>
-                <a class="tab left">
-                    <em class="h-icon glyphicon glyphicon-globe"></em>
-                    <em class="h-tab-s">Explore</em>
-                </a>
+                <div class="tab left">
+                    <a href="/home">
+                        <em class="h-icon glyphicon glyphicon-home"></em>
+                        <em class="h-tab-s">Home</em>
+                    </a>
+                </div>
+                <div class="tab left">
+                    <a href="/explore">
+                        <em class="h-icon glyphicon glyphicon-globe"></em>
+                        <em class="h-tab-s">Explore</em>
+                    </a>
+                </div>
                 <?php if (isset($_SESSION[SESSION_PREFIX.'loggedin']) &&
                           $_SESSION[SESSION_PREFIX.'loggedin']) { ?>
-                    <div class="left h-user-action">
-                        <div class="tab left">
-                            <a class="glyphicon glyphicon-envelope" href="#"></a>
-                        </div>
-                        <div id="userSettingBtn" class="tab left pos-rel" data-state="0">
-                            <a class="glyphicon glyphicon-user" href="#"></a>
-                            <div id="userSetting">
-                                <ul>
-                                    <li class="mar-tb-10">
-                                        <span class="glyphicon glyphicon-cog"></span>
-                                        <span class="mar-l-10"><a href="/account/dashboard" class="h-user-s-a">Account</a></span>
-                                    </li>
-                                    <li class="mar-tb-10">
-                                        <span class="glyphicon glyphicon-question-sign"></span>
-                                        <span class="mar-l-10"><a href="#" class="h-user-s-a">Help</a></span>
-                                    </li>
-                                    <li class="mar-tb-10">
-                                        <span class="glyphicon glyphicon-off"></span>
-                                        <span class="mar-l-10"><a href="/logout" class="h-user-s-a">Logout</a></span>
-                                    </li>
-                                </ul>
-                            </div>
+                    <div id="h-tab-divider" class="tab left">
+                        <i></i>
+                    </div>
+                    <div id="h-tab-message" class="tab left">
+                        <a href="/message">
+                            <em class="h-icon glyphicon glyphicon-envelope"></em>
+                            <em class="h-tab-s">Message</em>
+                        </a>
+                    </div>
+                    <div id="h-tab-account" class="tab left">
+                        <a href="/account/dashboard">
+                            <em class="h-icon glyphicon glyphicon-dashboard"></em>
+                            <em class="h-tab-s">Account</em>
+                        </a>
+                    </div>
+                    <div id="h-tab-auth" class="tab left">
+                        <a href="/logout">
+                            <em class="h-icon glyphicon glyphicon-off"></em>
+                            <em class="h-tab-s">Logout</em>
+                        </a>
+                    </div>
+                    <div id="h-tab-action" class="tab left pos-rel">
+                        <a id="userSettingBtn" data-state="0">
+                            <em class="h-icon glyphicon glyphicon-user"></em>
+                        </a>
+                        <div id="userSetting">
+                            <ul>
+                                <li class="mar-tb-10">
+                                    <span class="glyphicon glyphicon-cog"></span>
+                                    <span class="mar-l-10"><a href="/account/dashboard" class="h-user-s-a">Account</a></span>
+                                </li>
+                                <li class="mar-tb-10">
+                                    <span class="glyphicon glyphicon-question-sign"></span>
+                                    <span class="mar-l-10"><a href="/help" class="h-user-s-a">Help</a></span>
+                                </li>
+                                <li class="mar-tb-10">
+                                    <span class="glyphicon glyphicon-off"></span>
+                                    <span class="mar-l-10"><a href="/logout" class="h-user-s-a">Logout</a></span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 <?php } else { ?>
