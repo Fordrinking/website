@@ -31,7 +31,7 @@ class BlogDao extends Dao {
 				".PREFIX."posts.postDate as postDate,
 				".PREFIX."posts.share_num as shareNum,
 				".PREFIX."posts.comment_num as commentNUm,
-				".PREFIX."posts.like_num as likeNUm,
+				".PREFIX."posts.like_num as likeNum,
 				".PREFIX."users.username as username,
 				".PREFIX."users.avatar as avatar
 			FROM
