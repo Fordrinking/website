@@ -48,7 +48,7 @@ class BlogModel extends Model {
                 $row->postDate,
                 $row->content,
                 $row->shareNum == 0 ? "" : $row->shareNum,
-                $row->commentNUm == 0 ? "" : $row->commentNUm,
+                $row->commentNum == 0 ? "" : $row->commentNum,
                 $row->likeNum == 0 ? "" : $row->likeNum
             );
             array_push($blogs, $blogItem);
@@ -73,7 +73,7 @@ class BlogModel extends Model {
                 $row->postDate,
                 $row->content,
                 $row->shareNum == 0 ? "" : $row->shareNum,
-                $row->commentNUm == 0 ? "" : $row->commentNUm,
+                $row->commentNum == 0 ? "" : $row->commentNum,
                 $row->likeNum == 0 ? "" : $row->likeNum
             );
             array_push($blogs, $blogItem);
@@ -100,7 +100,7 @@ class BlogModel extends Model {
                 $row->postDate,
                 $row->content,
                 $row->shareNum == 0 ? "" : $row->shareNum,
-                $row->commentNUm == 0 ? "" : $row->commentNUm,
+                $row->commentNum == 0 ? "" : $row->commentNum,
                 $row->likeNum == 0 ? "" : $row->likeNum
             );
             array_push($blogs, $blogItem);
@@ -127,7 +127,7 @@ class BlogModel extends Model {
                 $row->postDate,
                 $row->content,
                 $row->shareNum == 0 ? "" : $row->shareNum,
-                $row->commentNUm == 0 ? "" : $row->commentNUm,
+                $row->commentNum == 0 ? "" : $row->commentNum,
                 $row->likeNum == 0 ? "" : $row->likeNum
             );
             array_push($blogs, $blogItem);

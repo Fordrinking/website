@@ -30,7 +30,7 @@ class BlogDao extends Dao {
 				".PREFIX."posts.content as content,
 				".PREFIX."posts.postDate as postDate,
 				".PREFIX."posts.share_num as shareNum,
-				".PREFIX."posts.comment_num as commentNUm,
+				".PREFIX."posts.comment_num as commentNum,
 				".PREFIX."posts.like_num as likeNum,
 				".PREFIX."users.username as username,
 				".PREFIX."users.avatar as avatar
@@ -58,8 +58,8 @@ class BlogDao extends Dao {
 				".PREFIX."posts.content as content,
 				".PREFIX."posts.postDate as postDate,
 				".PREFIX."posts.share_num as shareNum,
-				".PREFIX."posts.comment_num as commentNUm,
-				".PREFIX."posts.like_num as likeNUm
+				".PREFIX."posts.comment_num as commentNum,
+				".PREFIX."posts.like_num as likeNum
 			FROM
 				".PREFIX."posts
 			WHERE
@@ -85,8 +85,8 @@ class BlogDao extends Dao {
 				".PREFIX."posts.content as content,
 				".PREFIX."posts.postDate as postDate,
 				".PREFIX."posts.share_num as shareNum,
-				".PREFIX."posts.comment_num as commentNUm,
-				".PREFIX."posts.like_num as likeNUm,
+				".PREFIX."posts.comment_num as commentNum,
+				".PREFIX."posts.like_num as likeNum,
 				".PREFIX."users.username as username,
 				".PREFIX."users.avatar as avatar
 			FROM
@@ -115,7 +115,7 @@ class BlogDao extends Dao {
 				".PREFIX."posts.content as content,
 				".PREFIX."posts.postDate as postDate,
 				".PREFIX."posts.share_num as shareNum,
-				".PREFIX."posts.comment_num as commentNUm,
+				".PREFIX."posts.comment_num as commentNum,
 				".PREFIX."posts.like_num as likeNum
 			FROM
 				".PREFIX."posts
