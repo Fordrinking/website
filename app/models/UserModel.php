@@ -11,6 +11,7 @@ namespace models;
 
 use core\Model;
 use daos\UserDao;
+use models\peas\UserPea;
 
 class UserModel extends Model {
 
@@ -49,15 +50,15 @@ class UserModel extends Model {
     public function getUser($uid) {
         $data = UserDao::getUser($uid);
 
-        $user = new User(
-            $data['username'],
-            $data['password'],
-            $data['email'],
-            $data['avatar'],
-            $data['intro'],
-            $data['postNum'],
-            $data['followers'],
-            $data['follows']);
+        $user = new UserPea(
+            $data[0]->email,
+            $data[0]->username,
+            $data[0]->avatar,
+            $data[0]->password,
+            $data[0]->intro,
+            $data[0]->postNum,
+            $data[0]->followers,
+            $data[0]->follows);
 
         return $user;
     }

@@ -6,11 +6,11 @@
  * Date:    01/13, 2015
  */
 
-namespace models;
+namespace models\peas;
 
 use core\Pea;
 
-class User extends Pea {
+class UserPea extends Pea {
 
     private $email;
 
