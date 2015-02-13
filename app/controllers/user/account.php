@@ -74,4 +74,33 @@ class Account extends Controller{
         View::rendertemplate('footer', $data);
     }
 
+    public function moreSelfBlogs() {
+        $blogModel = new BlogModel();
+
+        $data['posts'] = $blogModel->getNextBlogByUser($_POST['blogIndex'], 5,
+            Session::get("currentUser"));
+
+        if($data['posts']){
+            foreach($data['posts'] as $row){
+                echo "<div class='blog-item'>\n";
+                echo     "<div class='dash-blog-c'>";
+                echo         "<div class='blog-title'>\n";
+                echo             "<div class='blog-info'>\n";
+                echo                 "<div class='blog-date'>$row->postDate</div>\n";
+                echo             "</div>\n";
+                echo             "<div class='blog-action'><i class='fa  fa-angle-down fa-lg'></i></div>\n";
+                echo         "</div>\n";
+                echo         "<div class='blog-body'>\n";
+                echo             $row->content;
+                echo         "</div>\n";
+                echo         "<div class='blog-footer'>\n";
+                echo             "<div class='blog-f-btn blog-repost-btn'><i class='fa fa-share-square-o fa-lg'></i></div>\n";
+                echo             "<div class='blog-f-btn blog-comment-btn'><i class='fa fa-comment-o fa-lg'></i></div>\n";
+                echo             "<div class='blog-f-btn blog-like-btn'><i class='fa fa-thumbs-o-up fa-lg'></i></div>\n";
+                echo         "</div>\n";
+                echo     "</div>";
+                echo "</div>\n";
+            }
+        }
+    }
 }

@@ -48,6 +48,18 @@
     width: 100%;
 }
 
+.dash-blog-c .blog-title {
+    height: 36px;
+}
+
+.dash-blog-c .blog-info {
+    height: 24px;
+}
+
+.dash-blog-c .blog-action {
+    top: 6px;
+}
+
 
 
 
