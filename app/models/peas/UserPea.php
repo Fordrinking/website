@@ -20,11 +20,24 @@ class User extends Pea {
 
     private $password;
 
-    public function __construct($email, $username, $password, $avatar) {
-        $this->email    = $email;
+    private $intro;
+
+    private $postNum;
+
+    private $followers;
+
+    private $follows;
+
+    function __construct($email, $username, $avatar, $password, $intro, $postNum, $followers, $follows)
+    {
+        $this->email = $email;
         $this->username = $username;
+        $this->avatar = $avatar;
         $this->password = $password;
-        $this->avatar   = $avatar;
+        $this->intro = $intro;
+        $this->postNum = $postNum;
+        $this->followers = $followers;
+        $this->follows = $follows;
     }
 
 
@@ -33,10 +46,14 @@ class User extends Pea {
      */
     public function getData() {
         return array(
-            'username' => $this->username,
-            'email'    => $this->email,
-            'password' => $this->password,
-            'avatar'   => $this->avatar
+            'username'  => $this->username,
+            'email'     => $this->email,
+            'password'  => $this->password,
+            'avatar'    => $this->avatar,
+            'intro'     => $this->intro,
+            'postNum'   => $this->postNum,
+            'followers' => $this->followers,
+            'follows'   => $this->follows,
         );
     }
 
@@ -95,4 +112,70 @@ class User extends Pea {
     {
         $this->password = $password;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getIntro()
+    {
+        return $this->intro;
+    }
+
+    /**
+     * @param mixed $intro
+     */
+    public function setIntro($intro)
+    {
+        $this->intro = $intro;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPostNum()
+    {
+        return $this->postNum;
+    }
+
+    /**
+     * @param mixed $postNum
+     */
+    public function setPostNum($postNum)
+    {
+        $this->postNum = $postNum;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFollowers()
+    {
+        return $this->followers;
+    }
+
+    /**
+     * @param mixed $followers
+     */
+    public function setFollowers($followers)
+    {
+        $this->followers = $followers;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFollows()
+    {
+        return $this->follows;
+    }
+
+    /**
+     * @param mixed $follows
+     */
+    public function setFollows($follows)
+    {
+        $this->follows = $follows;
+    }
+
+
 }

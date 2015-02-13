@@ -29,7 +29,7 @@ class Home extends Controller {
 		$userModel = new UserModel();
 
 
-		$data['title'] = "home";
+		$data['title']     = "home";
 		$data['posts']     = $blogModel->getNewestBlog(5);
 		$data['avatar']    = $userModel->getAvatar(Session::get("currentUser"));
 		$data['username']  = $userModel->getUsername(Session::get("currentUser"));

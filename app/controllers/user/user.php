@@ -31,7 +31,7 @@ class User extends Controller {
 
         $content   = "<div class='blog-body-t'>" . $content . "</div>";
 
-        $blogModel->postBlog($content, $username);
+        $blogModel->postBlog($content, $uid);
 
         echo "<div class='blog-item'>\n";
         echo     "<div class='blog-avatar-item'>\n";
@@ -71,7 +71,7 @@ class User extends Controller {
         $postdate  = date('Y-m-d H:i:s', time());
         $content   = "<div class='blog-body-t'>" . $content . "</div>";
 
-        $blogModel->postBlog($content, $username);
+        $blogModel->postBlog($content, $uid);
 
         echo "<div class='blog-item'>\n";
         echo     "<div class='blog-title'>\n";
@@ -170,7 +170,7 @@ class User extends Controller {
         $blog      = $_POST['attachData'];
 
         $content  .= ("<div class='blog-body-t'>" . $blog . "</div>");
-        $blogModel->postBlog($content, $username);
+        $blogModel->postBlog($content, $uid);
 
         echo "<div class='blog-item'>\n";
         echo     "<div class='blog-avatar-item'>\n";
@@ -233,7 +233,7 @@ class User extends Controller {
         $avatar    = $userModel->getAvatar($uid);
         $postdate  = date('Y-m-d H:i:s', time());
 
-        $blogModel->postBlog($content, $username);
+        $blogModel->postBlog($content, $uid);
 
         echo "<div class='blog-item'>\n";
         echo     "<div class='blog-title'>\n";
@@ -270,7 +270,7 @@ class User extends Controller {
 
         $content  .= ("<div class='blog-body-t'>" . $blog . "</div>");
 
-        $blogModel->postBlog($content, $username);
+        $blogModel->postBlog($content, $uid);
 
         echo "<div class='blog-item'>\n";
         echo     "<div class='blog-avatar-item'>\n";

@@ -27,15 +27,18 @@ class BlogDao extends Dao {
 
         $data = self::$_db->select("
 			SELECT
-				".PREFIX."posts.user as username,
 				".PREFIX."posts.content as content,
 				".PREFIX."posts.postDate as postDate,
+				".PREFIX."posts.share_num as shareNum,
+				".PREFIX."posts.comment_num as commentNUm,
+				".PREFIX."posts.like_num as likeNUm,
+				".PREFIX."users.username as username,
 				".PREFIX."users.avatar as avatar
 			FROM
 				".PREFIX."posts,
 				".PREFIX."users
 			WHERE
-				".PREFIX."posts.user = ".PREFIX."users.username
+				".PREFIX."posts.uid = ".PREFIX."users.uid
 			ORDER BY
 				pid DESC "."limit :num",
             array(':num' => $num));
@@ -52,16 +55,15 @@ class BlogDao extends Dao {
 
 		$data = self::$_db->select("
 			SELECT
-				".PREFIX."posts.user as username,
 				".PREFIX."posts.content as content,
 				".PREFIX."posts.postDate as postDate,
-				".PREFIX."users.avatar as avatar
+				".PREFIX."posts.share_num as shareNum,
+				".PREFIX."posts.comment_num as commentNUm,
+				".PREFIX."posts.like_num as likeNUm
 			FROM
-				".PREFIX."posts,
-				".PREFIX."users
+				".PREFIX."posts
 			WHERE
-				".PREFIX."posts.user = ".PREFIX."users.username &&
-				".PREFIX."users.uid = :uid
+				".PREFIX."posts.uid = :uid
 			ORDER BY
 				pid DESC "."limit :num",
 			array(':num' => $num,
@@ -80,15 +82,18 @@ class BlogDao extends Dao {
 
         $data = self::$_db->select("
 			SELECT
-				".PREFIX."posts.user as username,
 				".PREFIX."posts.content as content,
 				".PREFIX."posts.postDate as postDate,
+				".PREFIX."posts.share_num as shareNum,
+				".PREFIX."posts.comment_num as commentNUm,
+				".PREFIX."posts.like_num as likeNUm,
+				".PREFIX."users.username as username,
 				".PREFIX."users.avatar as avatar
 			FROM
 				".PREFIX."posts,
 				".PREFIX."users
 			WHERE
-				".PREFIX."posts.user = ".PREFIX."users.username
+				".PREFIX."posts.uid = ".PREFIX."users.uid
 			ORDER BY
 				pid DESC "."limit :index, :num",
             array(':num' => $num,
@@ -100,22 +105,22 @@ class BlogDao extends Dao {
 	/**
 	 * @param $index
 	 * @param $num
+	 * @param $uid
 	 * @return mixed
 	 */
 	public static function getNextBlogByUser($index, $num, $uid) {
 
 		$data = self::$_db->select("
 			SELECT
-				".PREFIX."posts.user as username,
 				".PREFIX."posts.content as content,
 				".PREFIX."posts.postDate as postDate,
-				".PREFIX."users.avatar as avatar
+				".PREFIX."posts.share_num as shareNum,
+				".PREFIX."posts.comment_num as commentNUm,
+				".PREFIX."posts.like_num as likeNUm
 			FROM
-				".PREFIX."posts,
-				".PREFIX."users
+				".PREFIX."posts
 			WHERE
-				".PREFIX."posts.user = ".PREFIX."users.username &&
-				".PREFIX."users.uid = :uid
+				".PREFIX."posts.uid = :uid
 			ORDER BY
 				pid DESC "."limit :index, :num",
 			array(':num' => $num,

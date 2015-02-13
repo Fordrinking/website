@@ -73,8 +73,48 @@ class UserDao extends Dao {
         return $data;
     }
 
-    public static function getUser($uid) {
+    public static function getIntro($uid) {
+        $data = self::$_db->select("SELECT intro FROM fd_users WHERE uid = :uid",
+            array(':uid' => $uid));
+        return $data;
+    }
 
+    public static function getPostNum($uid) {
+        $data = self::$_db->select("SELECT postNum FROM fd_users WHERE uid = :uid",
+            array(':uid' => $uid));
+        return $data;
+    }
+
+    public static function getFollowers($uid) {
+        $data = self::$_db->select("SELECT followers FROM fd_users WHERE uid = :uid",
+            array(':uid' => $uid));
+        return $data;
+    }
+
+    public static function getFollows($uid) {
+        $data = self::$_db->select("SELECT follows FROM fd_users WHERE uid = :uid",
+            array(':uid' => $uid));
+        return $data;
+    }
+
+    public static function getUser($uid) {
+        $data = self::$_db->select("
+			SELECT
+				".PREFIX."users.username as username,
+				".PREFIX."users.password as password,
+				".PREFIX."users.email as email,
+				".PREFIX."users.avatar as avatar,
+				".PREFIX."users.intro as intro,
+				".PREFIX."users.postNum as postNum,
+				".PREFIX."users.followers as followers,
+				".PREFIX."users.follows as follows
+			FROM
+				".PREFIX."users
+			WHERE
+				".PREFIX."users.uid = :uid",
+            array(':uid' => $uid));
+
+        return $data;
     }
 
     public static function addUser($data) {

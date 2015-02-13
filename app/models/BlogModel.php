@@ -18,10 +18,14 @@ class BlogModel extends Model {
      * @param $content
      * @param $user
      */
-    public function postBlog($content, $user) {
+    public function postBlog($content, $uid) {
+
         $data = array(
-            'user'    => $user,
-            'content' => $content
+            'uid'         => $uid,
+            'content'     => $content,
+            'share_num'   => 0,
+            'comment_num' => 0,
+            'like_num'    => 0
         );
 
         BlogDao::postBlog($data);

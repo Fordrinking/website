@@ -51,7 +51,11 @@ class UserModel extends Model {
             UserDao::getUsername($uid),
             UserDao::getUsername($uid),
             UserDao::getPassword($uid),
-            UserDao::getAvatar($uid));
+            UserDao::getAvatar($uid),
+            UserDao::getIntro($uid),
+            UserDao::getPostNum($uid),
+            UserDao::getFollowers($uid),
+            UserDao::getFollows($uid));
 
         return $user;
     }
@@ -81,7 +85,11 @@ class UserModel extends Model {
             'username' => $username,
             'password' => $password,
             'email'    => $email,
-            'avatar'   => $this->makeGravatar($email)
+            'avatar'   => $this->makeGravatar($email),
+            'intro'    => "Something about you!",
+            'postNum'  => 0,
+            'followers'=> 0,
+            'follows'  => 0
         );
 
         UserDao::addUser($data);
