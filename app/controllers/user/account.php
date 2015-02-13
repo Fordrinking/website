@@ -18,6 +18,9 @@ use models\UserModel;
 
 class Account extends Controller{
     public function info() {
+        if (!Session::get('loggedin')) {
+            Url::redirect('login');
+        }
         $data['title'] = "info";
 
 
@@ -30,18 +33,24 @@ class Account extends Controller{
     }
 
     public function security() {
-        $data['title'] = "info";
+        if (!Session::get('loggedin')) {
+            Url::redirect('login');
+        }
+        $data['title'] = "security";
 
         View::rendertemplate('header', $data);
         View::render('home/headbar', $data);
-        View::rendertemplate('framework', $data);
+        View::rendertemplate('account-framework', $data);
         View::render('user/security', $data);
         View::render('user/sidebar', $data);
         View::rendertemplate('footer', $data);
     }
 
     public function privacy() {
-        $data['title'] = "info";
+        if (!Session::get('loggedin')) {
+            Url::redirect('login');
+        }
+        $data['title'] = "privacy";
 
         View::rendertemplate('header', $data);
         View::render('home/headbar', $data);

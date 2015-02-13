@@ -1,14 +1,14 @@
 <div class="nav-page-c">
     <div class="nav-page">
         <div class="nav-bar def-i">
-            <div class="left tab tab-focus">
-                <a class="nav-a" href="#">Home</a>
+            <div class="left tab <?php if($data['title'] == "home") {echo "tab-focus";}?>">
+                <a class="nav-a" href="home">Home</a>
             </div>
-            <div class="left tab">
-                <a class="nav-a" href="#">Favorite</a>
+            <div class="left tab <?php if($data['title'] == "favorite") {echo "tab-focus";}?>">
+                <a class="nav-a" href="favorite">Favorite</a>
             </div>
-            <div class="left tab">
-                <a class="nav-a" href="#">Recommend</a>
+            <div class="left tab <?php if($data['title'] == "recommend") {echo "tab-focus";}?>">
+                <a class="nav-a" href="recommend">Recommend</a>
             </div>
         </div>
     </div>

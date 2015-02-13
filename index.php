@@ -65,6 +65,8 @@ use \core\Router,
 
 //define routes
 Router::any('home', '\controllers\home@index');
+Router::any('favorite', '\controllers\home@favorite');
+Router::any('recommend', '\controllers\home@recommend');
 
 Router::any('', '\controllers\user\signup@index');
 Router::any('signup', '\controllers\user\signup@signup');

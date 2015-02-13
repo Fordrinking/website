@@ -29,6 +29,7 @@ class Home extends Controller {
 		$userModel = new UserModel();
 
 
+		$data['title'] = "home";
 		$data['posts']     = $blogModel->getNewestBlog(5);
 		$data['avatar']    = $userModel->getAvatar(Session::get("currentUser"));
 		$data['username']  = $userModel->getUsername(Session::get("currentUser"));
@@ -39,6 +40,33 @@ class Home extends Controller {
 		View::rendertemplate('framework', $data);
 		View::render('home/post', $data);
 		View::render('home/blogs', $data);
+		View::render('home/sidebar', $data);
+		View::rendertemplate('footer', $data);
+	}
+
+	public function favorite() {
+		if (!Session::get('loggedin')) {
+			Url::redirect('login');
+		}
+
+		$data['title'] = "favorite";
+
+		View::rendertemplate('header', $data);
+		View::render('home/headbar', $data);
+		View::rendertemplate('framework', $data);
+		View::render('home/sidebar', $data);
+		View::rendertemplate('footer', $data);
+	}
+
+	public function recommend() {
+		if (!Session::get('loggedin')) {
+			Url::redirect('login');
+		}
+		$data['title'] = "recommend";
+
+		View::rendertemplate('header', $data);
+		View::render('home/headbar', $data);
+		View::rendertemplate('framework', $data);
 		View::render('home/sidebar', $data);
 		View::rendertemplate('footer', $data);
 	}
