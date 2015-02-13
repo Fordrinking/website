@@ -23,7 +23,7 @@ class Account extends Controller{
 
         View::rendertemplate('header', $data);
         View::render('home/headbar', $data);
-        View::rendertemplate('framework', $data);
+        View::rendertemplate('account-framework', $data);
         View::render('user/info', $data);
         View::render('user/sidebar', $data);
         View::rendertemplate('footer', $data);
@@ -45,7 +45,7 @@ class Account extends Controller{
 
         View::rendertemplate('header', $data);
         View::render('home/headbar', $data);
-        View::rendertemplate('framework', $data);
+        View::rendertemplate('account-framework', $data);
         View::render('user/privacy', $data);
         View::render('user/sidebar', $data);
         View::rendertemplate('footer', $data);
@@ -68,7 +68,7 @@ class Account extends Controller{
 
         View::rendertemplate('header', $data);
         View::render('home/headbar', $data);
-        View::rendertemplate('framework', $data);
+        View::rendertemplate('account-framework', $data);
         View::render('user/dashboard', $data);
         View::render('user/sidebar', $data);
         View::rendertemplate('footer', $data);
