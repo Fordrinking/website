@@ -47,15 +47,17 @@ class UserModel extends Model {
     }
 
     public function getUser($uid) {
+        $data = UserDao::getUser($uid);
+
         $user = new User(
-            UserDao::getUsername($uid),
-            UserDao::getUsername($uid),
-            UserDao::getPassword($uid),
-            UserDao::getAvatar($uid),
-            UserDao::getIntro($uid),
-            UserDao::getPostNum($uid),
-            UserDao::getFollowers($uid),
-            UserDao::getFollows($uid));
+            $data['username'],
+            $data['password'],
+            $data['email'],
+            $data['avatar'],
+            $data['intro'],
+            $data['postNum'],
+            $data['followers'],
+            $data['follows']);
 
         return $user;
     }
@@ -73,6 +75,26 @@ class UserModel extends Model {
     public function getAvatar($uid) {
         $data = UserDao::getAvatar($uid);
         return $data[0]->avatar;
+    }
+
+    public function getIntro($uid) {
+        $data = UserDao::getIntro($uid);
+        return $data[0]->intro;
+    }
+
+    public function getPostNum($uid) {
+        $data = UserDao::getPostNum($uid);
+        return $data[0]->postNum;
+    }
+
+    public function getFollowers($uid) {
+        $data = UserDao::getFollowers($uid);
+        return $data[0]->followers;
+    }
+
+    public function getFollows($uid) {
+        $data = UserDao::getFollows($uid);
+        return $data[0]->follows;
     }
 
     /**
