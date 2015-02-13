@@ -37,6 +37,17 @@ class BlogModel extends Model {
         return $data;
     }
 
+    /**
+     * @param $num
+     * @param $uid
+     * @return array
+     */
+    public function getNewestBlogByUser($num, $uid) {
+        $data = BlogDao::getNewestBlogByUser($num, $uid);
+
+        return $data;
+    }
+
 
 	/**
 	 * @param $index_str
@@ -45,8 +56,20 @@ class BlogModel extends Model {
      */
 	public function getNextBlog($index_str, $num) {
         $index = intval($index_str);
-
         $data = BlogDao::getNextBlog($index, $num);
+
+        return $data;
+    }
+
+    /**
+     * @param $index_str
+     * @param $num
+     * @param $uid
+     * @return array
+     */
+    public function getNextBlogByUser($index_str, $num, $uid) {
+        $index = intval($index_str);
+        $data  = BlogDao::getNextBlogByUser($index, $num, $uid);
 
         return $data;
     }

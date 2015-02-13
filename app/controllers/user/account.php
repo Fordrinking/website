@@ -11,6 +11,10 @@ namespace controllers\user;
 
 use core\Controller;
 use core\View;
+use helpers\Session;
+use helpers\Url;
+use models\BlogModel;
+use models\UserModel;
 
 class Account extends Controller{
     public function info() {
@@ -48,7 +52,19 @@ class Account extends Controller{
     }
 
     public function dashboard() {
-        $data['title'] = "info";
+        if (!Session::get('loggedin')) {
+            Url::redirect('login');
+        }
+
+        $blogModel = new BlogModel();
+        $userModel = new UserModel();
+
+        $data['posts']     = $blogModel->getNewestBlogByUser(5, Session::get("currentUser"));
+        $data['avatar']    = $userModel->getAvatar(Session::get("currentUser"));
+        $data['username']  = $userModel->getUsername(Session::get("currentUser"));
+        $data['title']     = "dashboard";
+        $data['js']        = array("account");
+        $data['blogIndex'] = 5;
 
         View::rendertemplate('header', $data);
         View::render('home/headbar', $data);

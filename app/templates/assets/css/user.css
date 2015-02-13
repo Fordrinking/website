@@ -9,9 +9,15 @@
 @media (min-width: 768px) {
     .head-bar-c {
         height: 60px;
+        box-shadow: 1px 1px 1px #202427;
     }
 }
 
+@media (min-width: 992px) {
+    .head-bar-c {
+        box-shadow: none;
+    }
+}
 .head-bar {
     padding-right: 15px;
     padding-left: 15px;
@@ -34,6 +40,16 @@
 @media (min-width: 1200px) {
     .head-bar {
         width:1170px;
+    }
+}
+
+.h-logo {
+    float: right;
+}
+
+@media (min-width: 768px) {
+    .h-logo {
+        float: left;
     }
 }
 
@@ -123,42 +139,43 @@
 
 }
 
-.h-tab-avatar {
-    position: absolute;
-    left: 20px;
-    top: 12px;
-    cursor: pointer;
+#h-tab-avatar {
 }
 
-
 @media (min-width: 768px) {
-    .h-tab-avatar {
+    #h-tab-avatar {
         display: none;
     }
 }
 
-.h-nav-avatar {
+#h-tab-avatar img {
     width: 24px;
     height: 24px;
 }
 
-
-.h-nav {
-    position: absolute;
-    right: 15px;
-    top: 12px;
-    color: #80CBC4;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.h-nav-username {
+#h-tab-avatar span {
     color: #B5B5B5;
     display: inline-block;
     vertical-align: middle;
     margin-bottom: 12px;
     margin-left: 10px;
     font-size: 18px;
+}
+
+.h-nav {
+    position: absolute;
+    left: 15px;
+    top: 12px;
+    color: #80CBC4;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .h-nav {
+        right: 15px;
+        left: auto;
+    }
 }
 
 @media (min-width: 992px) {
@@ -170,10 +187,11 @@
 
 
 .h-tab-row {
-    height: 210px;
-    right: 0;
-    position: absolute;
+    height: 100%;
+    left: 0;
+    position: fixed;
     top: 48px;
+    background-color: #263238;
 }
 
 .collapse {
@@ -182,7 +200,10 @@
 
 @media (min-width: 768px) {
     .h-tab-row {
+        right: 0;
+        left: auto;
         top: 60px;
+        position: absolute;
     }
 }
 
@@ -196,11 +217,7 @@
 }
 
 
-.tab {
-    float: left;
-    margin: 0 12px;
-    cursor: pointer;
-}
+
 
 .tab .h-icon {
     text-decoration: none;

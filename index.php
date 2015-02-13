@@ -95,6 +95,8 @@ Router::any('post-poll-client', '\controllers\user\user@postPollClient');
 Router::any('get-blog-client', '\controllers\home@clientGetBlogs');
 Router::any('more-blog', '\controllers\home@moreBlogs');
 
+Router::any('more-self-blog', '\controllers\home@moreSelfBlogs');
+
 Router::any('account/info', '\controllers\user\account@info');
 Router::any('account/security', '\controllers\user\account@security');
 Router::any('account/privacy', '\controllers\user\account@privacy');

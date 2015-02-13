@@ -1,8 +1,51 @@
+.nav-page-c {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .nav-page-c {
+        display: block;
+        padding-top: 60px;
+        position: fixed;
+        width: 100%;
+        z-index: 999;
+    }
+}
+
+@media (min-width: 992px) {
+    .nav-page-c {
+        display: none;
+    }
+}
+
+.nav-page {
+
+}
+
+.nav-bar {
+    height: 36px;
+    background-color: #2A373D;
+}
+
+.nav-bar .tab {
+    width: 33.3333%;
+    margin: 0;
+    padding: 8px 0;
+    text-align: center;
+    color: #D8E0E4;
+}
+
 .framework-c {
     padding-top: 84px;
 }
 
 @media (min-width: 768px) {
+    .framework-c {
+        padding-top: 136px;
+    }
+}
+
+@media (min-width: 992px) {
     .framework-c {
         padding-top: 100px;
     }
@@ -22,7 +65,7 @@
 
 @media (min-width: 992px) {
     .framework {
-        width: 960px;
+        width: 920px;
         margin-left: auto;
         margin-right: auto;
     }
