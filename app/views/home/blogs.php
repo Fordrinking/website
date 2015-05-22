@@ -6,21 +6,21 @@
             foreach($data['posts'] as $row){ ?>
             <div class="blog-item">
                 <div class="blog-avatar-item">
-                    <img class="blog-a-img left" src="<?php echo $row->avatar; ?>">
+                    <img class="blog-a-img left" src="<?php echo $row->getAvatar(); ?>">
                 </div>
                 <div class="blog-c">
                     <div class="blog-title">
                         <div class='blog-user'>
-                            <img class='user-img left' src='<?php echo $row->avatar; ?>'/>
+                            <img class='user-img left' src='<?php echo $row->getAvatar(); ?>'/>
                         </div>
                         <div class='blog-info'>
-                            <div class='blog-username'><?php echo $row->username; ?></div>
-                            <div class='blog-date'><?php echo $row->postDate; ?></div>
+                            <div class='blog-username'><?php echo $row->getUsername(); ?></div>
+                            <div class='blog-date'><?php echo $row->getPostDate(); ?></div>
                         </div>
                         <div class='blog-action'><i class='fa  fa-angle-down fa-lg'></i></div>
                     </div>
                     <div class="blog-body">
-                        <?php echo $row->content; ?>
+                        <?php echo $row->getContent(); ?>
                     </div>
                     <div class="blog-footer">
                         <div class='blog-f-btn blog-repost-btn'><i class='fa fa-share-square-o fa-lg'></i></div>
