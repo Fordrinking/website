@@ -197,4 +197,13 @@ class Database extends PDO{
 		return $this->exec("TRUNCATE TABLE $table");
 	}
 
+    public function getTableLength($table) {
+        $sql = "SELECT COUNT(*) FROM $table";
+        //$stmt = $this->prepare($sql);
+        if ($res = $this->query($sql)) {
+            return $res->fetchColumn();
+        } else {
+            return 0;
+        }
+    }
 }

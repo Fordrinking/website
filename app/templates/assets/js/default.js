@@ -210,6 +210,24 @@
         }
     }
 
+    function postCommentClicker() {
+        var $comment = $(this).parent().parent().find(".blog-comment-area");
+        var commentValue = $comment.val();
+
+        $.ajax({
+            url: "give-blog-comment",
+            type: "post",
+            data: {
+                blogId: $(this).parents(".blog-extra").data("id"),
+                userId: $("#currentUserId"),
+                comment: commentValue
+            },
+            success: function(value) {
+
+            }
+        });
+    }
+
     var app = {
 
         init: function() {
@@ -229,6 +247,7 @@
             $(".signup-form .form-item-t").on("keydown", function() {
                 $signupAlertMsg.html("");
             });
+            $(".blog-comment-btn").on("click", postCommentClicker);
         },
 
         run: function() {

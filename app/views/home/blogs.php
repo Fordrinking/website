@@ -27,17 +27,17 @@
                         <div class='blog-f-btn blog-comment-btn'><i class='fa fa-comment-o fa-lg'></i></div>
                         <div class='blog-f-btn blog-like-btn'><i class='fa fa-thumbs-o-up fa-lg'></i></div>
                     </div>
-                    <div class="blog-extra">
+                    <div class="blog-extra" data-id="<?php echo $row->getId(); ?>">
                         <div class="blog-comment-header">
                             <div class="blog-comment-user">
-                                <img class='user-img left' src='<?php echo $row->getAvatar(); ?>'/>
+                                <img class='user-img left' src="<?php echo $data['avatar']; ?>"/>
                             </div>
                             <div class="blog-comment-input">
                                 <div><textarea class="blog-comment-area"></textarea></div>
                                 <div class="blog-comment-input-f">
                                     <i class="fa fa-smile-o fa-lg"></i>
                                     <i class="fa fa-file-image-o fa-lg"></i>
-                                    <button>Comment</button>
+                                    <button class="blog-comment-btn">Comment</button>
                                 </div>
                             </div>
                         </div>

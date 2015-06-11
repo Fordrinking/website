@@ -32,6 +32,7 @@ class Home extends Controller {
 		$data['title']     = "home";
 		$data['posts']     = $blogModel->getNewestBlog(5);
 		$data['avatar']    = $userModel->getAvatar(Session::get("currentUser"));
+        $data['userId']    = Session::get("currentUser");
 		$data['username']  = $userModel->getUsername(Session::get("currentUser"));
 		$data['blogIndex'] = 5;
 

@@ -11,6 +11,8 @@ namespace models\peas;
 use core\Pea;
 
 class BlogPea extends Pea{
+    private $id;
+
     private $username;
 
     private $avatar;
@@ -25,8 +27,9 @@ class BlogPea extends Pea{
 
     private $likeNum;
 
-    function __construct($username, $avatar, $postDate, $content, $shareNum, $commentNum, $likeNum)
+    function __construct($id, $username, $avatar, $postDate, $content, $shareNum, $commentNum, $likeNum)
     {
+        $this->id       = $id;
         $this->username = $username;
         $this->avatar = $avatar;
         $this->postDate = $postDate;
@@ -34,6 +37,22 @@ class BlogPea extends Pea{
         $this->shareNum = $shareNum;
         $this->commentNum = $commentNum;
         $this->likeNum = $likeNum;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
 

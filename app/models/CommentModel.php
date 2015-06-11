@@ -2,8 +2,8 @@
 /**
  *
  * Author:  kaidi - ykdacd@outlook.com
- * Version: 
- * Date:    01/13, 2015
+ * Version:
+ * Date:    06/11, 2015
  */
 
 namespace models;
@@ -14,7 +14,7 @@ use daos\UserDao;
 use models\peas\BlogPea;
 
 
-class BlogModel extends Model {
+class CommentModel extends Model {
 
     /**
      * @param $content
@@ -85,12 +85,12 @@ class BlogModel extends Model {
     }
 
 
-	/**
-	 * @param $index_str
-	 * @param $num
-	 * @return mixed
+    /**
+     * @param $index_str
+     * @param $num
+     * @return mixed
      */
-	public function getNextBlog($index_str, $num) {
+    public function getNextBlog($index_str, $num) {
         $index = intval($index_str);
         $data  = BlogDao::getNextBlog($index, $num);
         $blogs = array();

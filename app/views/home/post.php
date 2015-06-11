@@ -1,6 +1,7 @@
 <div class="post-c">
     <div class="post">
         <div class="post-user">
+            <input type="hidden" id="currentUserId" value="<?php echo $data['userId']; ?>">
             <img class="post-user-img left" src="<?php echo $data['avatar']; ?>">
         </div>
         <div class="post-action">

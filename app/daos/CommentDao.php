@@ -2,22 +2,22 @@
 /**
  *
  * Author:  kaidi - ykdacd@outlook.com
- * Version: 
- * Date:    01/15, 2015
+ * Version:
+ * Date:    06/11, 2015
  */
 
 namespace daos;
 
 use core\Dao;
 
-class BlogDao extends Dao {
+class CommentDao extends Dao {
 
-	/**
-	 * @param $data
+    /**
+     * @param $data
      */
-	public static function postBlog($data) {
-		self::$_db->insert("fd_posts", $data);
-	}
+    public static function postComment($data) {
+        self::$_db->insert("fd_posts", $data);
+    }
 
     /**
      * @param $num
@@ -47,14 +47,14 @@ class BlogDao extends Dao {
         return $data;
     }
 
-	/**
-	 * @param $num
-	 * @param $uid
-	 * @return array
-	 */
-	public static function getNewestBlogByUser($num, $uid) {
+    /**
+     * @param $num
+     * @param $uid
+     * @return array
+     */
+    public static function getNewestBlogByUser($num, $uid) {
 
-		$data = self::$_db->select("
+        $data = self::$_db->select("
 			SELECT
 			    ".PREFIX."posts.pid as id,
 				".PREFIX."posts.content as content,
@@ -68,11 +68,11 @@ class BlogDao extends Dao {
 				".PREFIX."posts.uid = :uid
 			ORDER BY
 				pid DESC "."limit :num",
-			array(':num' => $num,
-				  ':uid' => $uid));
+            array(':num' => $num,
+                ':uid' => $uid));
 
-		return $data;
-	}
+        return $data;
+    }
 
 
     /**
@@ -105,15 +105,15 @@ class BlogDao extends Dao {
         return $data;
     }
 
-	/**
-	 * @param $index
-	 * @param $num
-	 * @param $uid
-	 * @return mixed
-	 */
-	public static function getNextBlogByUser($index, $num, $uid) {
+    /**
+     * @param $index
+     * @param $num
+     * @param $uid
+     * @return mixed
+     */
+    public static function getNextBlogByUser($index, $num, $uid) {
 
-		$data = self::$_db->select("
+        $data = self::$_db->select("
 			SELECT
 			    ".PREFIX."posts.pid as id,
 				".PREFIX."posts.content as content,
@@ -127,12 +127,12 @@ class BlogDao extends Dao {
 				".PREFIX."posts.uid = :uid
 			ORDER BY
 				pid DESC "."limit :index, :num",
-			array(':num' => $num,
-				':uid' => $uid,
-				':index' => $index));
+            array(':num' => $num,
+                ':uid' => $uid,
+                ':index' => $index));
 
-		return $data;
-	}
+        return $data;
+    }
 
 
 }
