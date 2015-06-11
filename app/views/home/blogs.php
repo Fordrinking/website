@@ -33,20 +33,31 @@
                                 <img class='user-img left' src='<?php echo $row->getAvatar(); ?>'/>
                             </div>
                             <div class="blog-comment-input">
-                                <div><input type="text"></div>
-                                <div>
+                                <div><textarea class="blog-comment-area"></textarea></div>
+                                <div class="blog-comment-input-f">
                                     <i class="fa fa-smile-o fa-lg"></i>
                                     <i class="fa fa-file-image-o fa-lg"></i>
+                                    <button>Comment</button>
                                 </div>
                             </div>
                         </div>
                         <div class="blog-comment-body">
                             <div class="blog-comment-item">
-                                <div><a href="#">user</a></div>
-                                <div></div>
-                                <div>
-                                    <div class="blog-comment-date"></div>
+                                <div class="blog-comment-item-u">
+                                    <img class='user-img left' src='<?php echo $row->getAvatar(); ?>'/>
                                 </div>
+                                <div class="blog-comment-item-c">
+                                    <div><a class="blog-comment-u-name" href="#">user: </a>a test comment fads a test comment fads a test comment fads a test comment fads a test comment fads a test comment fads a test comment fads a test comment fads</div>
+                                    <div></div>
+                                    <div class="blog-comment-item-footer">
+                                        <div class="blog-comment-date">3 minutes ago</div>
+                                        <ul>
+                                            <li>reply</li>
+                                            <li><i class="fa fa-thumbs-o-up fa-lg"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
                             </div>
 
                         </div>
