@@ -4,17 +4,18 @@
 
 (function ($) {
 
-    var blogIndex       = parseInt($("#blogIndex").val());
+    var blogIndex        = parseInt($("#blogIndex").val());
 
-    var $loginBtn       = $("#signupBtn");
-    var $userSettingBtn = $("#userSettingBtn");
-    var $userSetting    = $("#userSetting");
-    var $postSubmit     = $("#postSubmit");
-    var $postText       = $("#postText");
-    var $signupAlertMsg = $("#signupAlert");
-    var $navBtn         = $("#navBtn");
-    var $navNavRow      = $("#userNavRow");
-    var $postMobileAdd  = $("#postMobileAdd");
+    var $loginBtn        = $("#signupBtn");
+    var $userSettingBtn  = $("#userSettingBtn");
+    var $userSetting     = $("#userSetting");
+    var $postSubmit      = $("#postSubmit");
+    var $postText        = $("#postText");
+    var $signupAlertMsg  = $("#signupAlert");
+    var $navBtn          = $("#navBtn");
+    var $navNavRow       = $("#userNavRow");
+    var $postMobileAdd   = $("#postMobileAdd");
+    var $blogCommentArea = $(".blog-comment-header");
 
     var emailExist      = true;
     var usernameExist   = true;
@@ -210,16 +211,37 @@
         }
     }
 
+    function commentClicker() {
+        var $blogExtra = $(this).parents(".blog-c").find(".blog-extra");
+        var $blogCommentHeader = $(this).parents(".blog-c").find(".blog-comment-header");
+        if ($blogCommentHeader.data("state") == 0) {
+            $blogCommentHeader.show();
+            $blogCommentHeader.data("state", 1);
+            $.ajax({
+                url: "get-blog-comment",
+                type: "post",
+                data: {
+                    blogId: $blogExtra.data("id")
+                },
+                success: function(value) {
+                    $blogExtra.append(value);
+                }
+            });
+        } else {
+            $blogCommentHeader.hide();
+            $blogCommentHeader.data("state", 0);
+        }
+    }
+
     function postCommentClicker() {
         var $comment = $(this).parent().parent().find(".blog-comment-area");
         var commentValue = $comment.val();
-
         $.ajax({
             url: "give-blog-comment",
             type: "post",
             data: {
                 blogId: $(this).parents(".blog-extra").data("id"),
-                userId: $("#currentUserId"),
+                userId: $("#currentUserId").val(),
                 comment: commentValue
             },
             success: function(value) {
@@ -233,6 +255,7 @@
         init: function() {
             $userSetting.hide();
             $postText.focus();
+            $blogCommentArea.hide();
         },
 
         addEvent: function() {
@@ -247,7 +270,8 @@
             $(".signup-form .form-item-t").on("keydown", function() {
                 $signupAlertMsg.html("");
             });
-            $(".blog-comment-btn").on("click", postCommentClicker);
+            $(".blog-comment-btn").on("click", commentClicker);
+            $(".blog-comment-post-btn").on("click", postCommentClicker);
         },
 
         run: function() {

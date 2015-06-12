@@ -15,34 +15,36 @@ class CommentDao extends Dao {
     /**
      * @param $data
      */
-    public static function postComment($data) {
-        self::$_db->insert("fd_posts", $data);
+    public static function postBlogComment($data) {
+        self::$_db->insert("fd_comments", $data);
+    }
+
+    public static function getBlogCommentsNum() {
+        return self::$_db->getTableLength("fd_comments");
     }
 
     /**
      * @param $num
      * @return array
      */
-    public static function getNewestBlog($num) {
+    public static function getNewestComment($num, $bid) {
 
         $data = self::$_db->select("
 			SELECT
-			    ".PREFIX."posts.pid as id,
-				".PREFIX."posts.content as content,
-				".PREFIX."posts.postDate as postDate,
-				".PREFIX."posts.share_num as shareNum,
-				".PREFIX."posts.comment_num as commentNum,
-				".PREFIX."posts.like_num as likeNum,
-				".PREFIX."users.username as username,
-				".PREFIX."users.avatar as avatar
+			    ".PREFIX."comments.cid as id,
+			    ".PREFIX."comments.uid as uid,
+			    ".PREFIX."comments.bid as bid,
+				".PREFIX."comments.content as content,
+				".PREFIX."comments.postDate as postDate,
+				".PREFIX."comments.like_num as likeNum
 			FROM
-				".PREFIX."posts,
-				".PREFIX."users
+				".PREFIX."comments
 			WHERE
-				".PREFIX."posts.uid = ".PREFIX."users.uid
+				".PREFIX."comments.bid = :bid
 			ORDER BY
-				pid DESC "."limit :num",
-            array(':num' => $num));
+				cid DESC "."limit :num",
+            array(':num' => $num,
+                  ':bid' => $bid));
 
         return $data;
     }

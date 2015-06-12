@@ -115,7 +115,7 @@ class BlogDao extends Dao {
 
 		$data = self::$_db->select("
 			SELECT
-			    ".PREFIX."posts.pid as id,
+
 				".PREFIX."posts.content as content,
 				".PREFIX."posts.postDate as postDate,
 				".PREFIX."posts.share_num as shareNum,

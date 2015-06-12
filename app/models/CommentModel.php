@@ -10,8 +10,10 @@ namespace models;
 
 use core\Model;
 use daos\BlogDao;
+use daos\CommentDao;
 use daos\UserDao;
 use models\peas\BlogPea;
+use models\peas\CommentPea;
 
 
 class CommentModel extends Model {
@@ -20,42 +22,40 @@ class CommentModel extends Model {
      * @param $content
      * @param $uid
      */
-    public function postBlog($content, $uid) {
+    public function postBlogComment($uid, $bid, $content) {
 
         $data = array(
             'uid'         => $uid,
+            'bid'         => $bid,
             'content'     => $content,
-            'share_num'   => 0,
-            'comment_num' => 0,
             'like_num'    => 0
         );
 
-        BlogDao::postBlog($data);
+        CommentDao::postBlogComment($data);
     }
 
     /**
      * @param $num
      * @return array
      */
-    public function getNewestBlog($num) {
-        $data  = BlogDao::getNewestBlog($num);
-        $blogs = array();
+    public function getNewestComment($num, $bid) {
+        $blogId = intval($bid);
+        $data  = CommentDao::getNewestComment($num, $blogId);
+        $comments = array();
 
         foreach($data as $row){
-            $blogItem = new BlogPea(
+            $commentItem = new CommentPea(
                 $row->id,
-                $row->username,
-                $row->avatar,
+                $row->uid,
+                $row->bid,
                 $row->postDate,
                 $row->content,
-                $row->shareNum == 0 ? "" : $row->shareNum,
-                $row->commentNum == 0 ? "" : $row->commentNum,
                 $row->likeNum == 0 ? "" : $row->likeNum
             );
-            array_push($blogs, $blogItem);
+            array_push($comments, $commentItem);
         }
 
-        return $blogs;
+        return $comments;
     }
 
     /**

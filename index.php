@@ -105,7 +105,7 @@ Router::any('account/dashboard', '\controllers\user\account@dashboard');
 Router::any('account/more-self-blog', '\controllers\user\account@moreSelfBlogs');
 
 Router::any('give-blog-comment', '\controllers\comment@giveBlogComment');
-
+Router::any('get-blog-comment', '\controllers\comment@getBlogComment');
 //if no route found
 Router::error('\core\error@index');
 

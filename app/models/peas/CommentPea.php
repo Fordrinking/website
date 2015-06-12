@@ -14,16 +14,19 @@ class CommentPea {
 
     private $uid;
 
+    private $bid;
+
     private $postDate;
 
     private $content;
 
     private $likeNum;
 
-    function __construct($id, $uid, $postDate, $content, $likeNum)
+    function __construct($id, $uid, $bid, $postDate, $content, $likeNum)
     {
         $this->id = $id;
         $this->uid = $uid;
+        $this->bid = $bid;
         $this->postDate = $postDate;
         $this->content = $content;
         $this->likeNum = $likeNum;
@@ -60,6 +63,24 @@ class CommentPea {
     {
         $this->uid = $uid;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getBid()
+    {
+        return $this->bid;
+    }
+
+    /**
+     * @param mixed $bid
+     */
+    public function setBid($bid)
+    {
+        $this->bid = $bid;
+    }
+
+
 
     /**
      * @return mixed
