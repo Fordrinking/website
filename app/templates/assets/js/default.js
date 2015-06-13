@@ -230,22 +230,29 @@
         } else {
             $blogCommentHeader.hide();
             $blogCommentHeader.data("state", 0);
+            $blogExtra.find(".blog-comment-body").remove();
         }
     }
 
     function postCommentClicker() {
         var $comment = $(this).parent().parent().find(".blog-comment-area");
         var commentValue = $comment.val();
+        var $blogExtra = $(this).parents(".blog-extra");
         $.ajax({
             url: "give-blog-comment",
             type: "post",
             data: {
-                blogId: $(this).parents(".blog-extra").data("id"),
+                blogId: $blogExtra.data("id"),
                 userId: $("#currentUserId").val(),
                 comment: commentValue
             },
             success: function(value) {
-
+                var $blogCommentBody = $blogExtra.find(".blog-comment-body");
+                if ($blogCommentBody.length == 0) {
+                    $blogCommentBody = $("<div class='blog-comment-body'></div>");
+                    $blogExtra.append($blogCommentBody);
+                }
+                $blogCommentBody.prepend(value);
             }
         });
     }

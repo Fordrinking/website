@@ -18,21 +18,31 @@ class Comment extends Controller{
         $blogId  = $_POST['blogId'];
         $userId  = $_POST['userId'];
         $comment = $_POST['comment'];
-        $postdate  = date('Y-m-d H:i:s', time());
+        $postDate  = date('Y-m-d H:i:s', time());
 
+        $userModel = new UserModel();
         $commentModel = new CommentModel();
         $commentModel->postBlogComment($userId, $blogId, $comment);
 
+        $username = $userModel->getUsername($userId);
+        $avatar   = $userModel->getAvatar($userId);
 
-
-       // $content   = "<div class='blog-body-t'>" . $content . "</div>";
-
-        //$blogModel->postBlog($content, $uid);
-
-
-
-
-        echo "user-added";
+        echo "<div class='blog-comment-item'>\n";
+        echo     "<div class='blog-comment-item-u'>\n";
+        echo         "<img class='user-img left' src='$avatar'/>\n";
+        echo     "</div>\n";
+        echo     "<div class='blog-comment-item-c'>\n";
+        echo         "<div><a class='blog-comment-u-name' href='#'>$username : </a>$comment</div>\n";
+        echo         "<div></div>\n";
+        echo         "<div class='blog-comment-item-footer'>\n";
+        echo             "<div class='blog-comment-date'>$postDate</div>\n";
+        echo             "<ul>\n";
+        echo                 "<li>reply</li>\n";
+        echo                 "<li><i class='fa fa-thumbs-o-up fa-lg'></i></li>\n";
+        echo             "</ul>\n";
+        echo         "</div>\n";
+        echo     "</div>\n";
+        echo "</div>\n";
     }
 
     public function getBlogComment() {
