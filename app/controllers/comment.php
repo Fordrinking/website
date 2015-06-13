@@ -9,6 +9,7 @@
 namespace controllers;
 
 use core\Controller;
+use models\BlogModel;
 use models\CommentModel;
 use models\UserModel;
 
@@ -22,10 +23,13 @@ class Comment extends Controller{
 
         $userModel = new UserModel();
         $commentModel = new CommentModel();
+        $blogModel = new BlogModel();
         $commentModel->postBlogComment($userId, $blogId, $comment);
 
         $username = $userModel->getUsername($userId);
         $avatar   = $userModel->getAvatar($userId);
+
+        $blogModel->increaseCommentNum($blogId);
 
         echo "<div class='blog-comment-item'>\n";
         echo     "<div class='blog-comment-item-u'>\n";

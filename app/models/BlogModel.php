@@ -33,6 +33,21 @@ class BlogModel extends Model {
         BlogDao::postBlog($data);
     }
 
+    public function getBlog($pid) {
+        $data = BlogDao::getBlog($pid);
+        $blogItem = new BlogPea(
+            $data[0]->id,
+            $data[0]->username,
+            $data[0]->avatar,
+            $data[0]->postDate,
+            $data[0]->content,
+            $data[0]->shareNum == 0 ? ""   : $data[0]->shareNum,
+            $data[0]->commentNum == 0 ? "" : $data[0]->commentNum,
+            $data[0]->likeNum == 0 ? ""    : $data[0]->likeNum
+        );
+        return $blogItem;
+    }
+
     /**
      * @param $num
      * @return array
@@ -138,6 +153,18 @@ class BlogModel extends Model {
         }
 
         return $blogs;
+    }
+
+    public function updateCommentNum($pid, $num) {
+        BlogDao::updateCommentNum($pid, $num);
+    }
+
+    public function increaseCommentNum($pid) {
+        $blogId = intval($pid);
+        $data = BlogDao::getBlog($blogId);
+        $oldNum = $data[0]->commentNum;
+        $newNum = $oldNum + 1;
+        BlogDao::updateCommentNum($pid, $newNum);
     }
 
 }

@@ -23,9 +23,15 @@
                         <?php echo $row->getContent(); ?>
                     </div>
                     <div class="blog-footer">
-                        <div class='blog-f-btn blog-repost-btn'><i class='fa fa-share-square-o fa-lg'></i></div>
-                        <div class='blog-f-btn blog-comment-btn'><i class='fa fa-comment-o fa-lg'></i></div>
-                        <div class='blog-f-btn blog-like-btn'><i class='fa fa-thumbs-o-up fa-lg'></i></div>
+                        <div class='blog-f-btn blog-repost-btn'>
+                            <i class='fa fa-share-square-o fa-lg'></i><?php echo $row->getShareNum(); ?>
+                        </div>
+                        <div class='blog-f-btn blog-comment-btn'>
+                            <i class='fa fa-comment-o fa-lg'></i><?php echo $row->getCommentNum(); ?>
+                        </div>
+                        <div class='blog-f-btn blog-like-btn'>
+                            <i class='fa fa-thumbs-o-up fa-lg'></i><?php echo $row->getLikeNum(); ?>
+                        </div>
                     </div>
                     <div class="blog-extra" data-id="<?php echo $row->getId(); ?>">
                         <div class="blog-comment-header" data-state="0">

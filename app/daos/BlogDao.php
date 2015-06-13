@@ -19,6 +19,26 @@ class BlogDao extends Dao {
 		self::$_db->insert("fd_posts", $data);
 	}
 
+    public static function getBlog($pid) {
+        $data = self::$_db->select("
+			SELECT
+			    ".PREFIX."posts.pid as id,
+			    ".PREFIX."posts.uid as uid,
+			    ".PREFIX."posts.user as username,
+				".PREFIX."posts.content as content,
+				".PREFIX."posts.postDate as postDate,
+				".PREFIX."posts.share_num as shareNum,
+				".PREFIX."posts.comment_num as commentNum,
+				".PREFIX."posts.like_num as likeNum
+			FROM
+				".PREFIX."posts
+			WHERE
+				".PREFIX."posts.pid = :pid",
+            array(':pid' => $pid));
+
+        return $data;
+    }
+
     /**
      * @param $num
      * @return array
@@ -133,6 +153,13 @@ class BlogDao extends Dao {
 
 		return $data;
 	}
+
+    public static function updateCommentNum($pid, $num) {
+        $data = array('comment_num' => $num);
+        $where = array('pid' => $pid);
+        self::$_db->update("fd_posts", $data, $where);
+    }
+
 
 
 }
